@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.uber">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -30,10 +32,10 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="${MAPS_API_KEY}" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name=".RiderActivity"
             android:exported="false"
             android:label="@string/title_activity_maps" />
         <activity

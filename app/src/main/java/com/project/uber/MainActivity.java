@@ -2,6 +2,7 @@ package com.project.uber;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
                 public void done(ParseUser user, ParseException e) {
                     if(e==null){
                         Log.i("Login","Anonymous login");
+                        redirectUserActivity();
                     }else {
                         Log.i("Login","Anonymous login failed");
                     }
@@ -45,5 +47,15 @@ public class MainActivity extends AppCompatActivity {
         }
         ParseUser.getCurrentUser().put("riderOrDriver",userType);
         Log.i("riderOrDriver", userType);
+        redirectUserActivity();
+    }
+    public void redirectUserActivity(){
+        if(ParseUser.getCurrentUser().get("riderOrDriver")=="Rider"){
+            Intent intent = new Intent(this,RiderActivity.class);
+            startActivity(intent);
+        }else{
+
+        }
+
     }
 }

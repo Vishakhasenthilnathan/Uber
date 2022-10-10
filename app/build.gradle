@@ -16,6 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,4 +43,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.parse.bolts:bolts-tasks:1.4.0'
     implementation 'com.parse:parse-android:1.13.0'
+    implementation 'com.android.support:multidex:1.0.3'
 }
