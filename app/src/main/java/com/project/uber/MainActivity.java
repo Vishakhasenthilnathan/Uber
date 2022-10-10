@@ -12,6 +12,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,8 +47,13 @@ public class MainActivity extends AppCompatActivity {
             userType = "Driver";
         }
         ParseUser.getCurrentUser().put("riderOrDriver",userType);
-        Log.i("riderOrDriver", userType);
-        redirectUserActivity();
+        ParseUser.getCurrentUser().saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                redirectUserActivity();
+            }
+        });
+
     }
     public void redirectUserActivity(){
         if(ParseUser.getCurrentUser().get("riderOrDriver")=="Rider"){
